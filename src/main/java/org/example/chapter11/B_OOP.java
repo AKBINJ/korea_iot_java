@@ -6,7 +6,6 @@ package org.example.chapter11;
 // : 하나의 큰 인터페이스보다 여러 개의 작은 인터페이스를 사용을 권장
 // - 인터페이스의 단일 책임을 강조
 // - 클래스는 자신이 사용하지 않는 메서드에 의존하지 않아야 함.
-// >> 자신이
 
 // 1) 잘못된 설계 예시 - 필요하지 않는 행위를 강제로 구현
 interface Worker {
@@ -29,8 +28,12 @@ class Robot implements Worker {
 // >> 인터페이스가 SRP(단일 책임 원칙)도 위반하고, ISP도 위반한 상태
 
 // 2) 올바른 설계 예시
-interface Workable { void work();}
-interface Eatable {void eat();}
+interface Workable {
+    void work();
+}
+interface Eatable {
+    void eat();
+}
 
 class Employee implements Workable, Eatable {
     @Override

@@ -21,7 +21,7 @@ package org.example.chapter11;
 //      - 상속, 캡슐화, 추상화, 다양성은 OOP의 4가지 특성
 
 // 1. SRP(Single Responsibility Principle, 단일 책임 원칙)
-// - 클래스는 단 하나ㅡ이 책임만을 가져야 함
+// - 클래스는 단 하나의 책임만을 가져야 함
 // - 한 가지 역할(기능)만 담당 / 하나의 변화 이유만을 가져야 함
 // >> 하나의 클래스가 가지는 하난의 역할과 관련된 변경사항만 클래스에 영향을 미쳐야 함
 
@@ -64,7 +64,7 @@ class LunchMenu {
     }
 }
 
-// 2) 올바른 설계 예시 -
+// 2) 올바른 설계 예시
 interface LunchMenuInterface {
     void serveLunch();
 }
@@ -76,6 +76,7 @@ class RegularStudent implements LunchMenuInterface {
     }
 }
 
+// 변화가 발생해도 LunchMenuInterface를 구현한 클래스만 추가 - 확장만 하면 됨
 class VegetablesStudent implements LunchMenuInterface {
     @Override
     public void serveLunch() {
