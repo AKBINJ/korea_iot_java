@@ -43,7 +43,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Student{ " +
                 "ID = " + studentId +
                 ", 이름 = " + name +
                 ", 나이 = " + age +
