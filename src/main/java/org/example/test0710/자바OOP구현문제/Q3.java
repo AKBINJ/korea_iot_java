@@ -9,9 +9,13 @@ abstract class Shape {
 class Circle extends Shape{
     double r;
 
+    public Circle(double r) {
+        this.r = r;
+    }
+
     @Override
     double getArea() {
-        return r*r;
+        return Math.PI * r * r;
     }
 }
 
@@ -19,16 +23,24 @@ class Rectangle extends Shape{
     double w;
     double h;
 
+    public Rectangle(double w, double h) {
+        this.w = w;
+        this.h = h;
+    }
+
     @Override
     double getArea() {
-        return (w*h)/2;
+        return w*h;
     }
 }
 
 public class Q3 {
     public static void main(String[] args) {
-        Shape circle = new Circle();
-        Shape Rectangle = new Rectangle();
+        Shape circle = new Circle(5);
+        Shape rectangle = new Rectangle(5, 5);
+
+        System.out.println(circle.getArea());
+        System.out.println(rectangle.getArea());
 
 
     }

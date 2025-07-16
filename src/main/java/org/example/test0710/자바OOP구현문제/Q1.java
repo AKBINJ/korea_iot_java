@@ -24,10 +24,10 @@ class Cat extends Animal {
 
 public class Q1 {
     public static void main(String[] args) {
-        Dog dog = new Dog();
-        Cat cat = new Cat();
+        Animal[] animals = new Animal[]{new Dog(), new Cat()};
 
-        dog.makeSound();
-        cat.makeSound();
+        for (Animal a : animals) {
+            a.makeSound();
+        }
     }
 }
