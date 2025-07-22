@@ -81,7 +81,7 @@ class OuterClass {
         System.out.println("외부 클래스의 메서드 호출");
 
         // 로컬 클래스의 인스턴스화
-        // : 메서드 내부에서만 쓰이기 떄문에 인스턴스화도 내부넹서 일어남
+        // : 메서드 내부에서만 쓰이기 때문에 인스턴스화도 내부에서 일어남
         MethodClass methodClass = new MethodClass();
         methodClass.display();
     }
