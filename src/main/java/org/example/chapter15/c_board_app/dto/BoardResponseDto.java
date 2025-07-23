@@ -8,7 +8,7 @@ import org.example.chapter15.c_board_app.entity.Board;
 // - content 값을 제외한 필드를 제공
 @ToString
 public class BoardResponseDto {
-    private long id;
+    private Long id;
     private String title;
     private String author;
 

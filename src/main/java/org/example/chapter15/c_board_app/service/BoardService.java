@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface BoardService {
     // 생성) 요청 BoardRequestDto, 응답 X
-    void createBoard(BoardRequestDto board);
+    void createBoard(BoardRequestDto dto);
 
-    // 조회 ) 전체 - 요청 X, 응답 List<BoardResponseDto>
+    // 조회) 전체 - 요청 X, 응답 List<BoardResponseDto>
     List<BoardResponseDto> findAllBoards();
 
     // 조회) 단건 - 요청 id, 응답 BoardResponseDto
@@ -18,6 +18,6 @@ public interface BoardService {
     // 수정) 요청 id & BoardRequestDto, 응답 X
     void updateBoard(Long id, BoardRequestDto dto);
 
-    // 삭제 요청 id, 응답 X
+    // 삭제) 요청 id, 응답 X
     void deleteBoard(Long id);
 }

@@ -6,7 +6,7 @@ import org.example.chapter15.c_board_app.entity.Board;
 
 // BoardRequestDto
 // : 사용자에게 요청받은 데이터를 정의
-// - id를 제외한 필드 제공
+//  - id를 제외한 필드 제공
 @AllArgsConstructor
 @Getter
 public class BoardRequestDto {
@@ -17,7 +17,5 @@ public class BoardRequestDto {
     public Board toEntity() {
         // 요청값으로 Board 객체 생성
         return new Board(title, content, author);
-
     }
-
 }

@@ -17,10 +17,12 @@ public class BoardController {
     // 1. 게시판 생성
     public void createBoard(BoardRequestDto dto) {
         if (isValidRequest(dto)) {
+            // 게시글 등록 O
             boardService.createBoard(dto);
             System.out.println("게시글이 등록되었습니다.");
         } else {
-            System.out.println("입력값이 유효하지 않습니다,");
+            // 게시글 등록 X
+            System.out.println("입력값이 유효하지 않습니다.");
         }
     }
 
@@ -37,12 +39,13 @@ public class BoardController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
         return boards;
     }
 
     // 3. 게시판 조회 (단건)
-    public BoardRequestDto getBoardById(Long id) {
-        BoardRequestDto dto = null;
+    public BoardResponseDto getBoardById(Long id) {
+        BoardResponseDto dto = null;
 
         try {
             dto = boardService.findBoardById(id);
@@ -51,9 +54,10 @@ public class BoardController {
                 throw new Exception("해당 id의 게시글이 존재하지 않습니다.");
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
         return dto;
     }
 
@@ -61,7 +65,7 @@ public class BoardController {
     public void updateBoard(Long id, BoardRequestDto dto) {
         if (isValidRequest(dto)) {
             boardService.updateBoard(id, dto);
-            System.out.println("게시글이 수정되었습니다");
+            System.out.println("게시글이 수정되었습니다.");
         } else {
             System.out.println("입력값이 유효하지 않습니다.");
         }
@@ -83,14 +87,17 @@ public class BoardController {
         String author = dto.getAuthor();
 
         // &&: 하나라도 false면 false
-        // >> title, content, author 모드 null 값이 아니고 비워져 있지 않음
+        // >> title, content, author 모두 null 값이 아니고 비워져 있지 않음
 
         // 1) null: 아무런 값을 참조하지 않음 (주소값 X)
         // 2) isEmpty(): 비어 있는지 확인하는 메서드, 값(주소)은 존재하지만 그 내부 내용이 비워짐을 확인
-        //      >> 문자열(""), 리스트([]), 배열([])
-        boolean result = title != null && !title.isEmpty()
-                && (content != null && !content.isEmpty())
-                && (author != null && !author.isEmpty());
+        //              >> 문자열(""), 리스트([]), 배열([])
+        boolean result = title != null
+                && !title.isEmpty()
+                && content != null
+                && !content.isEmpty()
+                && author != null
+                && !author.isEmpty();
 
         return result;
     }

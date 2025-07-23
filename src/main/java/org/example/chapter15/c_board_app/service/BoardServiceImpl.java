@@ -5,15 +5,14 @@ import org.example.chapter15.c_board_app.dto.BoardResponseDto;
 import org.example.chapter15.c_board_app.entity.Board;
 import org.example.chapter15.c_board_app.repository.BoardRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class BoardServiceImpl implements BoardService {
     private final BoardRepository repository;
 
-    // 생성자 주입 방식
+    // 생성자 주입
     public BoardServiceImpl() {
         this.repository = new BoardRepository();
     }
@@ -33,7 +32,7 @@ public class BoardServiceImpl implements BoardService {
         List<BoardResponseDto> boardResponseDtos = boardList.stream()
                 // .map(board -> BoardResponseDto.fromEntity(board))
                 .map(BoardResponseDto::fromEntity)
-                .collect(Collector.toList());
+                .collect(Collectors.toList());
 
         return boardResponseDtos;
     }
@@ -62,6 +61,7 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void deleteBoard(Long id) {
         if (!repository.findById(id).isPresent()) {
+            // 해당 id의 데이터가 존재하지 X
             throw new IllegalArgumentException("해당 id의 게시글을 찾을 수 없습니다.");
         }
         repository.delete(id);
