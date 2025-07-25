@@ -1,4 +1,4 @@
-package org.example.z_project.phr_solution.dto.patient.request;
+package org.example.z_project.phr_solution.dto.request;
 
 
 import lombok.AllArgsConstructor;

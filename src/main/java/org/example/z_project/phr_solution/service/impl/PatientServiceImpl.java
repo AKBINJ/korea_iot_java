@@ -1,15 +1,14 @@
 package org.example.z_project.phr_solution.service.impl;
 
-import org.example.z_project.phr_solution.dto.patient.request.PatientCreateRequestDto;
-import org.example.z_project.phr_solution.dto.patient.request.PatientUpdateRequestDto;
-import org.example.z_project.phr_solution.dto.patient.response.PatientDetailResponseDto;
-import org.example.z_project.phr_solution.dto.patient.response.PatientListResponseDto;
+import org.example.z_project.phr_solution.dto.request.PatientCreateRequestDto;
+import org.example.z_project.phr_solution.dto.request.PatientUpdateRequestDto;
+import org.example.z_project.phr_solution.dto.response.PatientDetailResponseDto;
+import org.example.z_project.phr_solution.dto.response.PatientListResponseDto;
 import org.example.z_project.phr_solution.entity.Patient;
 import org.example.z_project.phr_solution.repository.PatientRepository;
 import org.example.z_project.phr_solution.service.PatientService;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class PatientServiceImpl implements PatientService {

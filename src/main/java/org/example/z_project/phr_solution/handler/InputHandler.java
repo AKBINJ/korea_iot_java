@@ -1,7 +1,8 @@
 package org.example.z_project.phr_solution.handler;
 
-import org.example.z_project.phr_solution.dto.patient.request.PatientCreateRequestDto;
-import org.example.z_project.phr_solution.dto.patient.request.PatientUpdateRequestDto;
+import org.example.z_project.phr_solution.dto.health_record.request.RecordCreateRequestDto;
+import org.example.z_project.phr_solution.dto.request.PatientCreateRequestDto;
+import org.example.z_project.phr_solution.dto.request.PatientUpdateRequestDto;
 
 import java.util.Scanner;
 
@@ -28,17 +29,17 @@ public class InputHandler {
                 return input;
             }
 
-            System.out.println("입력값을 비워둘 수 없습니다. 다시 입력해주세요");
+            System.out.println("입력값을 비워둘 수 없습니다. 다시 입력해주세요.");
         }
     }
 
     public static Long getIdInput() {
-        while (true) {
+        while(true) {
             String input = getInput("ID를 입력하세요");
             try {
                 return Long.parseLong(input);
             } catch (NumberFormatException e) {
-                System.out.println("숫자만 입력 가능합니다. 다시 입력해주세요");
+                System.out.println("숫자만 입력 가능합니다. 다시 입력해주세요.");
             }
         }
     }
@@ -73,6 +74,26 @@ public class InputHandler {
             dto = new PatientUpdateRequestDto(name, age);
         } catch (NumberFormatException e) {
             System.out.println("환자 나이는 숫자값을 입력해야합니다: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return dto;
+    }
+
+    // 2) 건강 기록 정보 - 생성
+    public static RecordCreateRequestDto createRecordRequest() {
+        RecordCreateRequestDto dto = null;
+
+        try {
+            long patientId = getIdInput();
+            String dateOfVisit = getInput("방문 날짜를 입력하세요(예: 2025-07-25)");
+            //? 문자열의 포맷이 DateTime과 다를 경우?
+            String diagnosis = getInput("진단명을 입력하세요");
+            String treatment = getInput("처방 내용을 입력하세요");
+
+            dto = new RecordCreateRequestDto(patientId, dateOfVisit, diagnosis, treatment);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

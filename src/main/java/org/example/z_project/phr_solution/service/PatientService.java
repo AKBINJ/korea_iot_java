@@ -1,9 +1,9 @@
 package org.example.z_project.phr_solution.service;
 
-import org.example.z_project.phr_solution.dto.patient.request.PatientCreateRequestDto;
-import org.example.z_project.phr_solution.dto.patient.request.PatientUpdateRequestDto;
-import org.example.z_project.phr_solution.dto.patient.response.PatientListResponseDto;
-import org.example.z_project.phr_solution.dto.patient.response.PatientDetailResponseDto;
+import org.example.z_project.phr_solution.dto.request.PatientCreateRequestDto;
+import org.example.z_project.phr_solution.dto.request.PatientUpdateRequestDto;
+import org.example.z_project.phr_solution.dto.response.PatientListResponseDto;
+import org.example.z_project.phr_solution.dto.response.PatientDetailResponseDto;
 
 import java.util.List;
 
